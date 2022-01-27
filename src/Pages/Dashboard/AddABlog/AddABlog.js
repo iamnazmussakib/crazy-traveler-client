@@ -34,6 +34,7 @@ const AddABlog = () => {
         formData.append('address', address);
         formData.append('rattings', handleRating);
         formData.append('expense', expense);
+        formData.append('status', 'approved');
         // formData.append('title', productData.name);
         // formData.append('date', productData.date,);
         // formData.append('desc', productData.desc);
@@ -42,7 +43,7 @@ const AddABlog = () => {
         // formData.append('rattings', handleRating);
         // formData.append('expense', `${productData.expense} TK`);
 
-        fetch('http://localhost:5000/blogs', {
+        fetch('https://vast-inlet-83299.herokuapp.com/blogs', {
             method: 'POST',
             body: formData
         })
@@ -92,7 +93,7 @@ const AddABlog = () => {
                 <Box sx={{ width: '75%', textAlign: 'center', mx: 'auto', mt: 16 }}>
                     <form id="addProduct" onSubmit={handleAddBlog}>
                         <Paper elevation={2} sx={{ py: 5 }}>
-                            <Typography color="secondary" sx={{ mb: 5 }} variant="h5">Add A Product</Typography>
+                            <Typography color="primary" sx={{ mb: 5 }} variant="h5">Add A Product</Typography>
                             <TextField
                                 sx={{ width: '80%', m: 1 }}
                                 id="outlined-size-small"
@@ -157,7 +158,7 @@ const AddABlog = () => {
                                     <MenuItem value={5}>Five</MenuItem>
                                 </Select>
                             </FormControl>
-                            <Button color="secondary" variant="contained" sx={{ width: '80%', mt: 5 }} type="submit">Add Product</Button>
+                            <Button color="primary" variant="contained" sx={{ width: '80%', mt: 5 }} type="submit">Add Product</Button>
 
                         </Paper>
                     </form>

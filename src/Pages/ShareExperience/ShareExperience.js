@@ -11,7 +11,7 @@ const ShareExperience = () => {
     const [image, setImage] = useState(null)
     const [address, setAddress] = useState('')
     const [time, setTime] = useState('')
-    const [rattings, setRattings] = useState('')
+    const [ratings, setRatings] = useState('')
     const [expense, setExpense] = useState('')
     const [success, setSuccess] = useState(false)
 
@@ -25,10 +25,12 @@ const ShareExperience = () => {
         formData.append('image', image);
         formData.append('address', address);
         formData.append('time', time);
-        formData.append('rattings', rattings);
+        formData.append('ratings', ratings);
         formData.append('expense', expense);
+        formData.append('status', 'pending');
+        
 
-        fetch('http://localhost:5000/blogs', {
+        fetch('https://vast-inlet-83299.herokuapp.com/blogs', {
             method: 'POST',
             body: formData
         })
@@ -86,12 +88,12 @@ const ShareExperience = () => {
 
                     <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Rattings</Form.Label>
-                    <Form.Select onChange={e => setRattings(e.target.value)} defaultValue="Choose...">
-                        <option>One</option>
-                        <option>Two</option>
-                        <option>Three</option>
-                        <option>Four</option>
-                        <option>Five</option>
+                    <Form.Select onChange={e => setRatings(e.target.value)} defaultValue="Choose...">
+                        <option value={1}>One</option>
+                        <option value={2}>Two</option>
+                        <option value={3}>Three</option>
+                        <option value={4}>Four</option>
+                        <option value={5}>Five</option>
                     </Form.Select>
                     </Form.Group>
 

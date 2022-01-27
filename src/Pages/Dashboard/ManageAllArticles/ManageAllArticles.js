@@ -1,28 +1,28 @@
 import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import ManageProduct from './ManageAllArticle';
+import ManageArticle from './ManageAllArticle'
 
 const ManageAllArticles = () => {
-    const [allProducts, setAllProducts] = useState([]);
+    const [allArticle, setAllArticle] = useState([]);
     useEffect(() => {
-        fetch('https://aqueous-ravine-85233.herokuapp.com/sunglasses')
+        fetch('https://vast-inlet-83299.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data => {
-                setAllProducts(data)
+                setAllArticle(data)
             });
     }, [])
     return (
         <>
             <Container>
-                <Typography sx={{ my: 5, textAlign: 'center' }} variant="h2">Manage All Products</Typography>
+                <Typography sx={{ my: 5, textAlign: 'center' }} variant="h2">Manage All Articles</Typography>
                 <Grid container spacing={2}>
                     {
-                        allProducts.map(product => <ManageProduct
-                            key={product._id}
-                            product={product}
-                            allProducts={allProducts}
-                            setAllProducts={setAllProducts}
-                        ></ManageProduct>)
+                        allArticle.map(article => <ManageArticle
+                            key={article._id}
+                            article={article}
+                            allArticle={allArticle}
+                            setAllArticle={setAllArticle}
+                        ></ManageArticle>)
                     }
 
                 </Grid>

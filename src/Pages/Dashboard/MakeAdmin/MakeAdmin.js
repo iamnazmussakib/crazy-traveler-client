@@ -9,7 +9,7 @@ const MakeAdmin = () => {
         
     const handleAdmin = e => {
         const user = { email, pass, role: 'admin' };
-        fetch('http://localhost:5000/users', {
+        fetch('https://vast-inlet-83299.herokuapp.com/users', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

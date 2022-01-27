@@ -7,7 +7,7 @@ const AdminRoute = ({ children, admin }) => {
     // const [admin, setAdmin] = useState(false);
     // const [user, setUser] = useState(false);
     // useEffect(()=>{
-    //     fetch('http://localhost:5000/users')
+    //     fetch('https://vast-inlet-83299.herokuapp.com/users')
     //     .then(res => res.json())
     //     .then(data => data.map(dt => setUser(dt)))
     // }, [])

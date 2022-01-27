@@ -8,6 +8,8 @@ import bnr3 from '../../../images/bnr3.jpg'
 import Navigation from '../../Shared/Navigation/Navigation';
 import Footer from '../../Shared/Footer/Footer';
 import { Link } from 'react-router-dom';
+import Sidebar from '../../Sidebar/Sidebar';
+import { Rating } from '@mui/material';
 
 const contents = [
     {
@@ -34,10 +36,12 @@ const Home = () => {
     const {isLoading} = useAuth();
     const [blogs, setBlogs] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/blogs')
+        fetch('https://vast-inlet-83299.herokuapp.com/blogs')
         .then(res => res.json())
         .then(data => setBlogs(data))
     }, [])
+    const approvedBlog = blogs.filter(art => art.status === 'approved');
+    console.log(approvedBlog);
     if(isLoading){
         return <div className="text-center mt-5">
             <Spinner className="mt-5" animation="grow" />
@@ -68,31 +72,17 @@ const Home = () => {
                 </Carousel>
             </div>
             
-            <div className="container mx-auto about-us">
-                <img className="" src="https://i.ibb.co/xjMLJVq/about.webp" alt="" />
-                <div className="about-content">
-                    <h2>About US</h2>
-                    <p className="text-dark">Amazing Tours is leading tour operator of Bangladesh and we are member of BD TOUR and Tour Operators Association of Bangladesh (TOAB). We are not only for tour operator, our Established Software company, This company provide many product is travel related and others kinds of software. Amazing Tours provides inbound and outbound tour operate. Inbound tours provide experience guide, standard and any categorys hotel, best tours spot selection and your security.</p>
-                </div>
-            </div>
-            <div className="bg-light py-5">
-                <div className="happy-client w-50 mx-auto text-center">
-                    <img className="w-50" src="https://image.freepik.com/free-vector/organic-flat-feedback-concept-illustrated_23-2148951369.jpg" alt="" />
-                    <div className="my-5">
-                        <h3 className="my-5">What Says Our Client</h3>
-                        <p className="text-dark">Amazing Tours is leading tour operator of Bangladesh and we are member of BD TOUR and Tour Operators Association of Bangladesh (TOAB). We are not only for tour operator, our Established Software company, This company provide many product is travel related and others kinds of software. Amazing Tours provides inbound and outbound tour operate. Inbound tours provide experience guide, standard and any categorys hotel, best tours spot selection and your security. Thanks</p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         <div className='container-fluid'>
             <div className="row">
                 <div className="col-12 col-md-8">
+                    <h2 className="text-center my-5">Travel Experience</h2>
                     <Row xs={1} md={2} className="g-4">
                     {
-                        blogs.map(sBlog => <Col>
-                                <Card>
-                                    <Card.Img variant="top" src={`data:image/png;base64,${sBlog.image}`} />
+                        approvedBlog.map(sBlog => <Col>
+                                <Card style={{border: '1px solid transparent'}} className='text-center'>
+                                    <Card.Img style={{borderRadius: 25}} variant="top" src={`data:image/png;base64,${sBlog.image}`} />
                                     <Card.Body>
                                     <Card.Title>{sBlog.title}</Card.Title>
                                     <Card.Text>
@@ -100,6 +90,9 @@ const Home = () => {
                                     </Card.Text>
                                     <Card.Text>
                                         {sBlog.date}
+                                    </Card.Text>
+                                    <Card.Text>
+                                        <Rating name="read-only" value={parseInt(sBlog.ratings)} readOnly />
                                     </Card.Text>
                                     <Link to={`/blogs/${sBlog._id}`}><Button variant="primary">View Details</Button></Link>
                                     </Card.Body>
@@ -109,10 +102,19 @@ const Home = () => {
                     }
                     </Row>
                 </div>
+                <div className="col-12 col-md-4">
+                    <Sidebar></Sidebar>
+                </div>
             </div>
         </div>
         
-
+            <div className="container mx-auto about-us">
+                <img className="" src="https://image.freepik.com/free-vector/organic-flat-feedback-concept-illustrated_23-2148951369.jpg" alt="" />
+                <div className="about-content">
+                    <h2>You can share your travel experience</h2>
+                    <p className="text-dark">Amazing Tours is leading tour operator of Bangladesh and we are member of BD TOUR and Tour Operators Association of Bangladesh (TOAB). We are not only for tour operator, our Established Software company, This company provide many product is travel related and others kinds of software. Amazing Tours provides inbound and outbound tour operate. Inbound tours provide experience guide, standard and any categorys hotel, best tours spot selection and your security.</p>
+                </div>
+            </div>
         <Footer></Footer>
         </>
     );

@@ -13,6 +13,7 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import DbLogin from './Pages/DbLogin/DbLogin';
 import AddABlog from './Pages/Dashboard/AddABlog/AddABlog';
+import ManageAllArticles from './Pages/Dashboard/ManageAllArticles/ManageAllArticles';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
               <Route path="/dashboard" element={<Dashboard />}>
                 <Route exact path={`/dashboard/add-article`} element={<AddABlog />}>
                 </Route>
-                <Route path={`/dashboard/manage-article`} element={<DbLogin />}>
+                <Route path={`/dashboard/manage-article`} element={<ManageAllArticles />}>
                 </Route>
                 <Route path={`/dashboard/make-admin`} element={<MakeAdmin />}>
                 </Route>

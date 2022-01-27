@@ -34,7 +34,7 @@ function Dashboard(props) {
             <Link to={`/dashboard/make-admin`}><Button sx={{ width: '100%', my: 1 }} color="primary" variant="outlined">Make Admin</Button></Link>
             <Link to={`/dashboard/add-article`}><Button sx={{ width: '100%', my: 1 }} color="primary" variant="outlined">Add A Article</Button></Link>
 
-            <Button onClick={logOut} sx={{ width: '100%', my: 1 }} color="primary" variant="outlined">LogOut</Button>
+            <Link to="/"><Button sx={{ width: '100%', my: 1 }} color="primary" variant="outlined">LogOut</Button></Link>
         </div>
     );
 

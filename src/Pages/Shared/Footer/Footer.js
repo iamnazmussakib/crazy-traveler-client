@@ -75,7 +75,7 @@ const Footer = () => {
         </section>
         <div className="footer">
             <div className="copyright-text">
-                <p>Copyright © 2021 STYLISH SUNGLASS Rights Reserved.</p>
+                <p>Copyright © 2021 CRAZY TRAVELER Rights Reserved.</p>
             </div>
         </div>
         </>

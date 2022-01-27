@@ -10,7 +10,7 @@ const SingleBlog = () => {
     const [singleBlog, setSingldata] = useState({});
     const { blogId } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/blogs/${blogId}`)
+        fetch(`https://vast-inlet-83299.herokuapp.com/blogs/${blogId}`)
             .then(res => res.json())
             .then(data => setSingldata(data));
     }, [])
