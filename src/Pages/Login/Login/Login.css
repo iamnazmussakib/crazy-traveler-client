@@ -1,0 +1,14 @@
+.login {
+  margin: 150px auto;
+  padding: 100px 70px;
+  box-shadow: 5px 10px 20px 2px rgb(211, 211, 211);
+  background: rgb(255, 255, 255);
+  border-radius: 30px;
+  width: 50%;
+}
+
+@media only screen and (max-width: 768px) {
+  .login {
+    width: 80%;
+  }
+}

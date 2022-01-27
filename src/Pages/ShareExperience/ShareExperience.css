@@ -1,0 +1,8 @@
+.addblog {
+  padding: 100px 0 50px;
+}
+@media only screen and (max-width: 768px) {
+  .addblog {
+    padding: 0;
+  }
+}

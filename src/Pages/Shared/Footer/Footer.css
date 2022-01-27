@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.footer p {
+  color: white;
+}
+.footer {
+  background: #005a9c;
+  padding: 15px 0;
+  text-align: center;
+}
+.footer .icons {
+  text-align: center;
+  margin: 0 0 20px;
+}
+.footer i {
+  background: rgb(255, 255, 255);
+  color: #005a9c;
+  font-size: 25px;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  margin: 0 10px;
+}
+
+.contact {
+  background: #005a9c;
+  padding: 20px 0 20px;
+  margin-top: 50px;
+}
+.contact .section-heading {
+  margin-top: 50px;
+}
+.contact .left-area .title h3 {
+  color: #fff;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.contact .left-area .desc p {
+  color: #fff;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+.contact .left-area i {
+  color: #ffffff;
+  font-size: 35px;
+  width: 35px;
+  height: 35px;
+  float: left;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+
+.contact .left-area .text p {
+  color: #fff;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 0 !important;
+}
+.contact .left-area .mail {
+  margin-bottom: 20px;
+}
+.contact .left-area .text p span {
+  color: #fff;
+  text-transform: lowercase;
+}
+.contact .left-area .social-icon {
+  text-align: center;
+  margin-top: 20px;
+}
+.contact .left-area .social-icon i {
+  color: #005a9c;
+  font-size: 25px;
+  background: #ffffff;
+  padding: 7px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 25px;
+  border-radius: 50%;
+  margin-bottom: 30px;
+}
+.contact .right-area input {
+  width: 30%;
+  border: 1px solid #dddddd;
+  border-radius: 25px;
+  font-size: 15px;
+  margin: 0 1%;
+  display: block;
+  float: left;
+  padding: 15px 0.5%;
+}
+.contact .right-area .msg {
+  width: 95.5%;
+  height: 170px;
+  margin: 28px 1%;
+  border: 1px solid #dddddd;
+  border-radius: 25px;
+  font-size: 15px;
+  padding: 15px 1%;
+}
+.contact .right-area form input[type="submit"] {
+  width: 185px;
+  font-weight: bold;
+  padding: 15px 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: #005a9c;
+  border: 1px solid #ffffff;
+  border-radius: 25px;
+  float: left;
+  margin-left: 9px;
+}
+
+@media (max-width: 990px) {
+  .contact .left-area {
+    text-align: center;
+  }
+  .contact .left-area i {
+    float: none;
+    margin: 0;
+  }
+  .contact .right-area input {
+    float: none;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .footer-content {
+    display: block;
+  }
+}
