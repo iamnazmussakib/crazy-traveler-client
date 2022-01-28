@@ -14,6 +14,8 @@ import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import DbLogin from './Pages/DbLogin/DbLogin';
 import AddABlog from './Pages/Dashboard/AddABlog/AddABlog';
 import ManageAllArticles from './Pages/Dashboard/ManageAllArticles/ManageAllArticles';
+import UpdateBlog from './Pages/Dashboard/UpdateBlog/UpdateBlog';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
@@ -34,8 +36,9 @@ function App() {
                 <Route path={`/dashboard/make-admin`} element={<MakeAdmin />}>
                 </Route>
               </Route>
-            <Route path={`blogs/:blogId`} element={<SingleBlog />}></Route>
-            <Route exact path="/addblog" element={<ShareExperience />}></Route>
+            <Route path={`blogsUd/:blogIdUd`} element={<UpdateBlog />}></Route>
+            <Route path={`blogs/:blogId`} element={<PrivateRoute><SingleBlog /></PrivateRoute>}></Route>
+            <Route exact path="/addblog" element={<PrivateRoute><ShareExperience /></PrivateRoute>}></Route>
             <Route exact path="/" element={<Home />}></Route>
           </Routes>
         </Router>

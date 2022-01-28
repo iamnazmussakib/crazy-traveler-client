@@ -32,7 +32,7 @@ const AddABlog = () => {
         formData.append('desc', desc);
         formData.append('image', image);
         formData.append('address', address);
-        formData.append('rattings', handleRating);
+        formData.append('ratings', handleRating);
         formData.append('expense', expense);
         formData.append('status', 'approved');
         // formData.append('title', productData.name);

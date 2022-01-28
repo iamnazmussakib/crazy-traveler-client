@@ -9,7 +9,7 @@ import Navigation from '../../Shared/Navigation/Navigation';
 import Footer from '../../Shared/Footer/Footer';
 import { Link } from 'react-router-dom';
 import Sidebar from '../../Sidebar/Sidebar';
-import { Rating } from '@mui/material';
+import { Pagination, Rating } from '@mui/material';
 
 const contents = [
     {
@@ -35,11 +35,22 @@ const contents = [
 const Home = () => {
     const {isLoading} = useAuth();
     const [blogs, setBlogs] = useState([]);
-    useEffect(()=>{
-        fetch('https://vast-inlet-83299.herokuapp.com/blogs')
-        .then(res => res.json())
-        .then(data => setBlogs(data))
-    }, [])
+    const [page, setPage] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
+    const size = 6;
+    useEffect(() => {
+        fetch(`http://localhost:5000/blogs?page=${page}&&size=${size}`)
+            .then(res => res.json())
+            .then(data => {
+                setBlogs(data.blogs);
+                const count = data.count;
+                const pageNumber = Math.ceil(count / size);
+                setPageCount(pageNumber);
+            });
+    }, [page]);
+
+
+
     const approvedBlog = blogs.filter(art => art.status === 'approved');
     console.log(approvedBlog);
     if(isLoading){
@@ -64,7 +75,7 @@ const Home = () => {
                             />
                             <Carousel.Caption>
                             <h1>{content.name}</h1>
-                            <p>{content.desc}</p>
+                            <p style={{textShadow: '2px 2px 2px #000000'}}>{content.desc}</p>
                             </Carousel.Caption>
                         </Carousel.Item>
                     )
@@ -82,7 +93,7 @@ const Home = () => {
                     {
                         approvedBlog.map(sBlog => <Col>
                                 <Card style={{border: '1px solid transparent'}} className='text-center'>
-                                    <Card.Img style={{borderRadius: 25}} variant="top" src={`data:image/png;base64,${sBlog.image}`} />
+                                    <Card.Img style={{borderRadius: 25, maxHeight:400}} variant="top" src={`data:image/png;base64,${sBlog.image}`} />
                                     <Card.Body>
                                     <Card.Title>{sBlog.title}</Card.Title>
                                     <Card.Text>
@@ -101,6 +112,17 @@ const Home = () => {
                         )
                     }
                     </Row>
+                    <p className='text-center'>Pages</p>
+                    <div className="col-12 text-center d-flex justify-content-center">
+                        {
+                            [...Array(pageCount).keys()]
+                                .map(number => <button
+                                    className={`btn btn-primary mx-2 ${number === page ? 'selected' : ''}`}
+                                    key={number}
+                                    onClick={() => setPage(number)}
+                                >{number + 1}</button>)
+                        }
+                    </div>
                 </div>
                 <div className="col-12 col-md-4">
                     <Sidebar></Sidebar>

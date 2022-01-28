@@ -54,10 +54,10 @@ const Footer = () => {
                     <div className="right-area col-12 col-md-8">
                         <div className="row">
                             <form onSubmit={sendEmail}>
-                                <input required className="name" type="text" placeholder="Your Name" name="name" />
-                                <input required className="email" type="email" placeholder="Your Email" name="email" />
-                                <input required className="subject" type="text" placeholder="Your Subject" name="subject" />
-                                <textarea required className="msg col-12" name="" cols="30" rows="10" name="message" placeholder="Your Massage"></textarea>
+                                <input required className="name ps-4" type="text" placeholder="Your Name" name="name" />
+                                <input required className="email ps-4" type="email" placeholder="Your Email" name="email" />
+                                <input required className="subject ps-4" type="text" placeholder="Your Subject" name="subject" />
+                                <textarea required className="msg col-12 ps-4" name="" cols="30" rows="10" name="message" placeholder="Your Massage"></textarea>
                                 <input type="submit" value="Send Massage" />
                             </form>
                             {success && <Alert variant="success">

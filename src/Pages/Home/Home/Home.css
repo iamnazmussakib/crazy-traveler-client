@@ -58,6 +58,9 @@
   margin: 50px 0;
   font-size: 20px;
 }
+.selected {
+  background: #000 !important;
+}
 @media only screen and (max-width: 768px) {
   .bookings {
     grid-template-columns: repeat(1, 1fr);

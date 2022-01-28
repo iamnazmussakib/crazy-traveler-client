@@ -8,7 +8,7 @@ const ManageArticle = ({ article, allArticle, setAllArticle }) => {
     const handleDeleteBtn = id => {
         const procced = window.confirm('Are You Sure To Delete This article?');
         if (procced) {
-            fetch(`http://localhost:5000/blogs/${id}`, {
+            fetch(`https://vast-inlet-83299.herokuapp.com/blogs${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -23,7 +23,7 @@ const ManageArticle = ({ article, allArticle, setAllArticle }) => {
     };
 
     const handleUpdate = id => {
-        fetch(`http://localhost:5000/blogs/${id}`, {
+        fetch(`https://vast-inlet-83299.herokuapp.com/blogs${id}`, {
             method: 'PUT',
         })
             .then(res => res.json())
@@ -44,7 +44,7 @@ const ManageArticle = ({ article, allArticle, setAllArticle }) => {
                 <Typography sx={{ my: 2 }} variant="body1">Desc: {desc.slice(0, 100)}</Typography>
                 <Button onClick={() => { handleUpdate(_id) }} sx={{ width: '100%', my:1 }} color="primary" variant="contained">Approve Article</Button>
                 <Link to={`/blogs/${_id}`}><Button sx={{ width: '100%', my:1 }} color="primary" variant="contained">View Article</Button></Link>
-                <Button onClick={() => { handleDeleteBtn(_id) }} sx={{ width: '100%', my:1 }} color="primary" variant="contained">Update Article</Button>
+                <Link to={`/blogsUd/${_id}`}><Button sx={{ width: '100%', my:1 }} color="primary" variant="contained">Update</Button></Link>
                 <Button onClick={() => { handleDeleteBtn(_id) }} sx={{ width: '100%', my:1 }} color="primary" variant="contained">Delete Article</Button>
             </Paper>
 
