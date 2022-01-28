@@ -26,7 +26,7 @@ const UpdateBlog = () => {
             expense: singleBlog.expense}
     const { blogIdUd } = useParams();
     useEffect(() => {
-        fetch(`http://localhost:5000/blogsUd/${blogIdUd}`)
+        fetch(`https://vast-inlet-83299.herokuapp.com/blogsUd/${blogIdUd}`)
             .then(res => res.json())
             .then(data => setSingleBlog(data));
     }, [])
@@ -50,7 +50,7 @@ const UpdateBlog = () => {
             expense,
         }
        
-        fetch(`http://localhost:5000/blogs/${blogIdUd}`, {
+        fetch(`https://vast-inlet-83299.herokuapp.com/blogs/${blogIdUd}`, {
             method: 'PUT',
             headers: {
                 'content-type':'application/json'
